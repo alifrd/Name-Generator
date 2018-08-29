@@ -20,6 +20,15 @@ const ajaxCall = (url) =>{
     XHR.send();
 }
 
+const fetchCall = (url) =>{
+    fetch(url)
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(names) {
+        htmlBuilder(names);
+    })
+}
 
 const load = (e) => {
     e.preventDefault();
@@ -39,7 +48,8 @@ const load = (e) => {
     if(amount)
         url +=`amount=${amount}&`
     
-    let result= ajaxCall(url);
+//    ajaxCall(url);
+    fetchCall(url);
 }
 
 
