@@ -30,6 +30,13 @@ const fetchCall = (url) =>{
     })
 }
 
+async function fetchAwait(url){
+    const response =await fetch(url);
+    const names = await response.json();
+    htmlBuilder(names);
+}
+
+
 const load = (e) => {
     e.preventDefault();
 
@@ -49,7 +56,8 @@ const load = (e) => {
         url +=`amount=${amount}&`
     
 //    ajaxCall(url);
-    fetchCall(url);
+//    fetchCall(url);
+      fetchAwait(url)
 }
 
 
